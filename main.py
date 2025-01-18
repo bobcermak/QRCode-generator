@@ -5,16 +5,18 @@ class Ui:
         while True:
             try:
                 self.url = str(input("Enter a URL: "))
-                _utilsUrl = utils.Url()
-                if (_utilsUrl.checkCorrectUrl(self.url)):
+                _url = utils.Url()
+                if (_url.checkCorrectUrl(self.url)):
                     print(f"Address {self.url} has been found, please go to the output folder")
                     _genCode = utils.GenCode()
-                    _writeImg = utils.WriteImg()
+                    _img = utils.Img()
                     ourImg = _genCode.generateCode(self.url)
-                    _writeImg.writeImg(ourImg)
+                    cleanedUrl = _url.cleanedUrl(self.url)
+                    _img.createImg()
+                    _img.saveImg(ourImg, cleanedUrl)
             except ValueError:
                 print("Invalid input. Please enter a valid URL.")
-                continue
+                continue 
 #Call
 ui = Ui()
 ui.uiAsk()
