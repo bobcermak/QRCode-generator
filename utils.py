@@ -1,19 +1,13 @@
-# Importing the sys module for system-specific parameters and functions
-import sys
-
-# Importing the os module to interact with the operating system (e.g., for file operations)
+#Importing the os module to manipulate files
 import os
 
-# Adding the custom library path to the system path to allow importing modules from the specified directory
-sys.path.append(r"C:\Users\Bob\Desktop\QRCode\libraries")
-
-# Importing the qrcode module for generating QR codes
+#Importing the qrcode module for generating QR codes
 import qrcode
 
-# Importing the requests library to make HTTP requests (e.g., for validating or fetching URLs)
+#Importing the requests library to make HTTP requests (e.g., for validating or fetching URLs)
 import requests
 
-# Importing urlparse from urllib.parse for parsing URLs into components
+#Importing urlparse from urllib.parse for parsing URLs into components
 from urllib.parse import urlparse
 
 ##Classes##
@@ -29,7 +23,8 @@ class Url:
     def cleanedUrl(self, url):
         parsed_url = urlparse(url)
         cleaned_url = parsed_url.netloc + parsed_url.path
-        return cleaned_url.strip("/").replace("/", "_")
+        converted_url = cleaned_url.strip("/").replace("/", "_").replace(".", "_")
+        return converted_url.lstrip("www_")
 #Generate code
 class GenCode:
     def generateCode(self, url): #return cleanedUrl()

@@ -11,7 +11,7 @@ class Ui:
                     _genCode = utils.GenCode()
                     _img = utils.Img()
                     ourImg = _genCode.generateCode(self.url)
-                    cleanedUrl = _url.cleanedUrl(self.url)
+                    cleanedUrl = _url.cleanedUrl(self.url)                  
                     _img.createImg()
                     _img.saveImg(ourImg, cleanedUrl)
             except ValueError:
