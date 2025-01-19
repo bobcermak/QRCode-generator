@@ -13,28 +13,36 @@ from urllib.parse import urlparse
 ##Classes##
 #Url
 class Url:
-    def checkCorrectUrl(self, url) -> bool:
+    def __init__(self, url):
+        self.url = url
+    def checkCorrectUrl(self) -> bool:
         try:
-            self.response = requests.get(url)
+            self.response = requests.get(self.url)
             return self.response.status_code == 200
         except Exception as e:
             print(f"Error while checking URL: {e}")
             return False
-    def cleanedUrl(self, url):
-        parsed_url = urlparse(url)
+    def cleanedUrl(self):
+        parsed_url = urlparse(self.url)
         cleaned_url = parsed_url.netloc + parsed_url.path
         converted_url = cleaned_url.strip("/").replace("/", "_").replace(".", "_")
         return converted_url.lstrip("www_")
 #Generate code
 class GenCode:
-    def generateCode(self, url): #return cleanedUrl()
-        img = qrcode.make(url)
+    def __init__(self, url):
+        self.url = url
+    def generateCode(self): #return cleanedUrl()
+        img = qrcode.make(self.url)
         return img
 #Write img
 class Img:
-    def createImg(self):
+    def __init__(self, img, url):
+        self.img = img
+        self.url = url
         self.output_path = "./output/images/"
+        self.output_path_index = "./output/indexes/"
+    def createImg(self):
         if not os.path.exists(self.output_path):
             os.makedirs(self.output_path)
-    def saveImg(self, img, url):
-        img.save(f"{self.output_path}{url}.png")
+    def saveImg(self):
+        self.img.save(f"{self.output_path}{self.url}.png")
