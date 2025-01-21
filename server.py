@@ -23,5 +23,5 @@ class LocalHost:
     def start_server(self):
         with TCPServer((self.host, self.port), SimpleHTTPRequestHandler) as httpd:
             print(f"Server is running at http://{self.host}:{self.port}")
-            webbrowser.open(f'http://{self.host}:{self.port}/{self.path}{self.html_file}.html')
+            webbrowser.open(f"http://{self.host}:{self.port}/{self.path}{self.html_file}.html")
             httpd.serve_forever()

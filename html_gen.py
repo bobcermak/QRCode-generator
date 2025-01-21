@@ -23,13 +23,13 @@ class Html:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QRCode</title>
 </head>
-<body>
-    <article>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: Arial, sans-serif;">
+    <div style="text-align: center;">
         <h1>QRCode</h1>
-        <img src="{path_img}{path_url}" alt="QRCode" width="400" height="400">
+        <img src="{path_img}{path_url}" alt="QRCode" width="400" height="400" style="max-width: 100%; height: auto;">
         <a href="{self.fullUrl}" target="_blank">{self.fullUrl}</a>
         <p>The QR code has been downloaded to the <a href="{path_img}" target="_blank">{path_img}</a> folder.</p>
-    <article/>
+    </div>
 </body>
 </html>
 """
