@@ -19,9 +19,9 @@ class LocalHost:
         self.port = 5500
         self._utils= utils.Img(img, url)
         self.path = self._utils.output_path_index
-        self.html_file = f"{self._utils.url}"
-    def startServer(self):
+        self.html_file = self._utils.url
+    def start_server(self):
         with TCPServer((self.host, self.port), SimpleHTTPRequestHandler) as httpd:
-            print(f"Server běží na adrese http://{self.host}:{self.port}")
-            webbrowser.open(f'http://{self.host}:{self.port}/{self.path}{self.html_file}')
+            print(f"Server is running at http://{self.host}:{self.port}")
+            webbrowser.open(f'http://{self.host}:{self.port}/{self.path}{self.html_file}.html')
             httpd.serve_forever()

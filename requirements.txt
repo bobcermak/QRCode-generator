@@ -1,0 +1,5 @@
+qrcode
+requests
+html
+webbrowser
+urllib3

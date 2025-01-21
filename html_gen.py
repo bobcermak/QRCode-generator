@@ -9,24 +9,29 @@ class Html:
     def __init__(self, img, fullUrl):
         self.img = img
         self.fullUrl = fullUrl
-    def htmlStructure(self, img, url):
+    def html_structure(self, img, url):
         _utils = utils.Img(img, url)
-        ourUrl = _utils.url
-        path = _utils.output_path_index
-        # content = "<div>QRcode</div>"
-        # escaped_content = html.escape(content)
+        our_url = _utils.url
+        path_index = _utils.output_path_index
+        path_img = _utils.output_path
+        path_url = _utils.url
         html_content = f"""
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Kód</title>
+    <title>QRCode</title>
 </head>
 <body>
-    <div>Hey<div/>
+    <article>
+        <h1>QRCode</h1>
+        <img src="{path_img}{path_url}" alt="QRCode" width="400" height="400">
+        <a href="{self.fullUrl}" target="_blank">{self.fullUrl}</a>
+        <p>The QR code has been downloaded to the <a href="{path_img}" target="_blank">{path_img}</a> folder.</p>
+    <article/>
 </body>
 </html>
 """
-        with open(f"{path}{ourUrl}", "w") as file:
+        with open(f"{path_index}{our_url}.html", "w") as file:
             file.write(f"{html_content}")
