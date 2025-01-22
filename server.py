@@ -22,6 +22,13 @@ class Local_host:
         self.html_file = self._utils.url
     def start_server(self):
         with TCPServer((self.host, self.port), SimpleHTTPRequestHandler) as httpd:
+            self.server = httpd
             print(f"Server is running at http://{self.host}:{self.port}")
             webbrowser.open(f"http://{self.host}:{self.port}/{self.path}{self.html_file}.html")
             httpd.serve_forever()
+    def end_server(self):
+        self.server.shutdown()
+        print("Server stopped")
+    def end_server_ui(self):
+        user_input = input("Enter (y/n) to stop the server: ").lower()
+        return user_input == "y"
