@@ -9,14 +9,14 @@ import html_gen
 
 #Ui
 class Ui:
-    def ui_ask(self):
+    def start_ui(self):
         while True:
             try:
                 self.url = str(input("Enter a URL: "))
                 _url = utils.Url(self.url)
                 if (_url.check_correct_url()):
                     print(f"Address {self.url} has been found")
-                    _gen_code = utils.GenCode(self.url)
+                    _gen_code = utils.Generate_code(self.url)
                     our_img = _gen_code.generate_code()
                     cleaned_url = _url.cleaned_url()
                     _img = utils.Img(our_img, cleaned_url)
@@ -24,7 +24,7 @@ class Ui:
                     _img.save_img()
                     _html = html_gen.Html(our_img, self.url)
                     _html.html_structure(our_img, cleaned_url)
-                    hosting = server.LocalHost(our_img, cleaned_url)
+                    hosting = server.Local_host(our_img, cleaned_url)
                     hosting.start_server()
                 else:
                     print("Invalid URL")
@@ -34,4 +34,4 @@ class Ui:
 #Call
 if __name__ == "__main__":
     ui = Ui()
-    ui.ui_ask()
+    ui.start_ui()

@@ -13,7 +13,7 @@ from socketserver import TCPServer
 # Import custom utility library
 import utils
 
-class LocalHost:
+class Local_host:
     def __init__(self, img, url):
         self.host = "127.0.0.1"
         self.port = 5500

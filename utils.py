@@ -28,7 +28,7 @@ class Url:
         converted_url = cleaned_url.strip("/").replace("/", "_").replace(".", "_")
         return converted_url.lstrip("www_")
 #Generate code
-class GenCode:
+class Generate_code:
     def __init__(self, url):
         self.url = url
     def generate_code(self): #return cleanedUrl()
