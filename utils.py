@@ -41,6 +41,7 @@ class Img:
         self.url = url
         self.output_path = "./output/images/"
         self.output_path_index = "./output/indexes/"
+        self.output_path_rel = "../images/"
     def create_img(self):
         if not os.path.exists(self.output_path):
             os.makedirs(self.output_path)
