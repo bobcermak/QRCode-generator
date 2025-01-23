@@ -2,8 +2,20 @@ MIT License
 
 Copyright (c) 2025 BobCermak
 
-Tímto se uděluje zdarma jakékoli osobě, která získá kopii tohoto softwaru a přidružené dokumentace (dále jen "Software"), právo s tímto Softwarem nakládat bez jakýchkoli omezení, včetně, ale nikoli výlučně, práv používat, kopírovat, měnit, sloučit, publikovat, distribuovat, sublicencovat a/nebo prodávat kopie tohoto Softwaru a umožnit osobám, kterým je Software poskytnut, to též provádět, za předpokladu, že budou splněny následující podmínky:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Toto autorské právo a tento souhlas musí být zahrnuty ve všech kopiích nebo podstatných částech Softwaru.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Software je poskytován "TAK, JAK JE", BEZ JAKÝCHKOLI ZÁRUK, AŤ VÝSLOVNÝCH NEBO IMPLIKOVANÝCH, VČETNĚ, ALE NE OMEZENÉ NA ZÁRUKY PRODEJNOSTI, VHODNOSTI PRO KONKRÉTNÍ ÚČEL A NEPORUŠENÍ PRÁV. V ŽÁDNÉM PŘÍPADĚ NEBUDOU AUTOŘI ANI DRŽITELÉ AUTORSKÝCH PRÁV ZODPOVĚDNÍ ZA ŽÁDNÉ NÁROKY, ŠKODY ANI JINOU ODPOVĚDNOST, AŤ UŽ VE FORMĚ SMLUVY, DELIKTU NEBO JINÉ, VZNIKLÉ Z NEBO V SOUVISLOSTI S TÍMTO SOFTWAREM NEBO JEHO POUŽÍVÁNÍM NEBO JINÝM ZPŮSOBEM.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
