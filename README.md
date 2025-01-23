@@ -2,7 +2,7 @@
 
 A simple tool to generate QR codes from URLs and display them in various html.
 
-![QRCode Image](./output/assets/qrcode.jpg)
+![QRCode Image](./output/assets/qrcode-logo.jpg)
 
 ## Generate QR Codes for Any URL
 
