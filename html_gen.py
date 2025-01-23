@@ -133,7 +133,7 @@ class Html_handler:
         <p><b>{self.url_path}</b></p>
         <img src="{self.image_rel_path}{self.url_path}.png" alt="QRCode" width="400" height="400">
         <a href="{self.full_url}" target="_blank">{self.full_url}</a>
-        <p>The QR codes have been downloaded to the <a href="{self.index_rel_path}" target="_blank">{self.index_rel_path}</a>.</p>
+        <p>QRCodes naleznete <a href="{self.index_rel_path}" target="_blank">zde</a>.</p>
     </div>
 </body>
 </html>

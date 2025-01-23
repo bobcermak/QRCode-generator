@@ -12,14 +12,13 @@ import threading
 
 #User Interface
 class UserInterface:
-    
     def start(self) -> None:
         while True:
             try:
-                self.url_input = str(input("Enter a URL: "))
+                self.url_input = str(input("Zadejte URL: "))
                 self.url_handler = utils.Url(self.url_input)
                 if self.url_handler.check_correct_url():
-                    print(f"Address {self.url_input} has been found.")
+                    print(f"Adresa {self.url_input} byla nalezena.")
                     self.process_url()
                     self.hosting_server = server.Local_host(self.generated_image, self.cleaned_url)
                     server_thread = threading.Thread(target=self.hosting_server.start_server, daemon=True)
@@ -27,9 +26,9 @@ class UserInterface:
                     self.hosting_server.end_server_ui()
                     break
                 else:
-                    print("Invalid URL.")
+                    print("Špatná URL.")
             except ValueError:
-                print("Invalid input. Please enter a valid URL.")
+                print("Neplatný vstup. Zadejte platnou URL.")
                 continue
     """
     Starts the user interface loop where the user is prompted to enter a URL.

@@ -12,7 +12,7 @@ Snadno vytvářejte QR kódy pro vaše URL ve formátu PNG. Tento nástroj je sk
 
 ## Instalace
 
-Pro instalaci požadovaných závislostí můžete použít následující příkazy:
+Pro instalaci požadovaných modulů můžete použít následující příkazy:
 
 ```bash
 pip3 install -r requirements.txt
@@ -22,4 +22,18 @@ pip3 install -r requirements.txt
 
 ```bash
 pip install -r requirements.txt
+```
+
+## Použití
+
+Pro spuštění programu spusťte (příkazy zadávejte do PowerShellu / Terminálu ve složce projektu):
+
+```bash
+python3 main.py
+```
+
+### nebo
+
+```bash
+python main.py
 ```

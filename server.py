@@ -34,12 +34,12 @@ class Local_host:
     def start_server(self) -> None:
         with TCPServer((self.host, self.port), SimpleHTTPRequestHandler) as httpd:
             self.server = httpd
-            print(f"Server is running at http://{self.host}:{self.port}")
+            print(f"Server běží na adrese http://{self.host}:{self.port}")
             try:
                 webbrowser.open(f"http://{self.host}:{self.port}/{self.path}{self.html_file}.html")
                 httpd.serve_forever()
             except KeyboardInterrupt:
-                print("\nServer stopped.")
+                print("\nServer byl zastaven.")
                 httpd.shutdown()
     """
     Starts the local HTTP server and opens the generated HTML page in the browser.
@@ -47,8 +47,8 @@ class Local_host:
     HTML page automatically.
     """
     def end_server_ui(self) -> None:
-        input("Press Enter to stop the server...\n")
-        print("Stopping server...")
+        input("Stiskněte Enter pro zastavení serveru...\n")
+        print("Zastavuji server...")
     """
     Prompts the user to press Enter to stop the server.
     This method ensures the user can stop the server manually from the command line.

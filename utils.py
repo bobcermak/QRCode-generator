@@ -25,7 +25,7 @@ class Url:
             self.response = requests.get(self.url)
             return self.response.status_code == 200
         except Exception as e:
-            print(f"Error while checking URL: {e}")
+            print(f"Chyba při kontrolování URL: {e}")
             return False
     """
     Checks if the URL is valid by making an HTTP request and checking the response status code.
