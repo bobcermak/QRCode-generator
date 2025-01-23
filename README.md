@@ -1,25 +1,25 @@
 # QRCode Generator
 
-A simple tool to generate QR codes from URLs and display them in various html.
+Jednoduchý nástroj pro generování QR kódů z URL a jejich zobrazení v různých HTML.
 
 ![QRCode Image](./output/assets/qrcode-logo.jpg)
 
-## Generate QR Codes for Any URL
+## Generujte QR kódy pro libovolnou URL
 
-Easily create QR codes for your URLs in PNG format. This tool is great for web development, presentations, or just sharing quick access to websites via scannable codes.
+Snadno vytvářejte QR kódy pro vaše URL ve formátu PNG. Tento nástroj je skvělý pro webový vývoj, prezentace nebo pro rychlé sdílení přístupu na webové stránky pomocí skenovatelných kódů.
 
 ---
 
-## Installation
+## Instalace
 
-To install the required dependencies, you can use the following commands:
+Pro instalaci požadovaných závislostí můžete použít následující příkazy:
 
 ```bash
 pip3 install -r requirements.txt
 ```
 
-### or
+### nebo
 
 ```bash
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
