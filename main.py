@@ -12,7 +12,8 @@ import threading
 
 #User Interface
 class UserInterface:
-    def start(self):
+    
+    def start(self) -> None:
         while True:
             try:
                 self.url_input = str(input("Enter a URL: "))
@@ -30,7 +31,12 @@ class UserInterface:
             except ValueError:
                 print("Invalid input. Please enter a valid URL.")
                 continue
-    def process_url(self):
+    """
+    Starts the user interface loop where the user is prompted to enter a URL.
+    If the URL is valid, it processes the URL, generates a QR code, and starts the server.
+    If the URL is invalid, it prompts the user to enter a valid one.
+    """
+    def process_url(self) -> None:
         code_generator = utils.Generate_code(self.url_handler.url)
         self.generated_image = code_generator.generate_code()
         self.cleaned_url = self.url_handler.cleaned_url()
@@ -40,6 +46,11 @@ class UserInterface:
         html_generator = html_gen.Html_handler(self.generated_image, self.url_handler.url, self.cleaned_url)
         html_generator.generate_html_structure()
         html_generator.save_html()
+    """
+    Processes the URL by generating a QR code for the given URL, cleaning the URL,
+    and creating the corresponding HTML files. This method calls necessary functions
+    from the utils and html_gen modules to generate and save the image and HTML content.
+    """
 #Call
 if __name__ == "__main__":
     ui = UserInterface()

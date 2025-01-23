@@ -1,14 +1,14 @@
 #Import os to handle file and directory operations
 import os
 
-#Import htmlTo handle HTML entities if needed
+#Import html to handle HTML entities if needed
 import html
 
 #Import custom utility library for image handling
 import utils
 
 #Classes
-#Html Handler
+#Html handler
 class Html_handler:
     def __init__(self, qr_image, full_url, base_url):
         self.qr_image = qr_image
@@ -19,7 +19,19 @@ class Html_handler:
         self.image_rel_path = self._utils.output_path_img_rel
         self.index_rel_path = self._utils.output_path_index_rel
         self.url_path = self._utils.url
-    def generate_html_structure(self):
+    """
+    Initializes the Html_handler class with QR code image, full URL, and base URL for HTML generation.
+    Args:
+        qr_image (img): The QR code image to be embedded in the HTML.
+        full_url (str): The full URL for the QR code.
+        base_url (str): The base URL used for saving files and generating paths.
+    """
+    def generate_html_structure(self) -> None:
+        """
+        Generates the HTML content structure, embedding the QR code and providing links.
+        The method creates a complete HTML structure including styles, the QR code image, and links to the 
+        full URL and relative path to the saved image.
+        """
         self.html_content = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -126,7 +138,11 @@ class Html_handler:
 </body>
 </html>
 """
-    def save_html(self):
+    def save_html(self) -> None:
+        """
+        Saves the generated HTML content to a file in the specified output path.
+        If the output directory does not exist, it is created. The HTML file is named based on the base URL.
+        """
         if not os.path.exists(self.index_output_path):
             os.makedirs(self.index_output_path)
         with open(f"{self.index_output_path}{self.base_url}.html", "w") as file:
