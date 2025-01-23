@@ -1,22 +1,26 @@
-# Import the html module, which provides functions for handling HTML entities and escaping text
+#Import os to handle file and directory operations
+import os
+
+#Import htmlTo handle HTML entities if needed
 import html
 
-# Import custom utility library
+#Import custom utility library for image handling
 import utils
 
-#HTML
-class Html:
-    def __init__(self, img, fullUrl):
-        self.img = img
-        self.fullUrl = fullUrl
-    def html_structure(self, img, url):
-        _utils = utils.Img(img, url)
-        our_url = _utils.url
-        path_output = _utils.output_path_output
-        path_index = _utils.output_path_index
-        path_img = _utils.output_path_rel
-        path_url = _utils.url
-        html_content = f"""
+#Classes
+#Html Handler
+class Html_handler:
+    def __init__(self, qr_image, full_url, base_url):
+        self.qr_image = qr_image
+        self.full_url = full_url
+        self._utils = utils.Img(qr_image, base_url)
+        self.base_url = self._utils.url
+        self.index_output_path = self._utils.output_path_index
+        self.image_rel_path = self._utils.output_path_img_rel
+        self.index_rel_path = self._utils.output_path_index_rel
+        self.url_path = self._utils.url
+    def generate_html_structure(self):
+        self.html_content = f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,12 +118,16 @@ class Html:
 <body>
     <div class="container">
         <h1>QRCode</h1>
-        <img src="{path_img}{path_url}.png" alt="QRCode" width="370" height="370">
-        <a href="{self.fullUrl}" target="_blank">{self.fullUrl}</a>
-        <p>The QR codes have been downloaded to the <a href="{path_output}" target="_blank">{path_output}</a>.</p>
+        <p><b>{self.url_path}</b></p>
+        <img src="{self.image_rel_path}{self.url_path}.png" alt="QRCode" width="400" height="400">
+        <a href="{self.full_url}" target="_blank">{self.full_url}</a>
+        <p>The QR codes have been downloaded to the <a href="{self.index_rel_path}" target="_blank">{self.index_rel_path}</a>.</p>
     </div>
 </body>
 </html>
 """
-        with open(f"{path_index}{our_url}.html", "w") as file:
-            file.write(f"{html_content}")
+    def save_html(self):
+        if not os.path.exists(self.index_output_path):
+            os.makedirs(self.index_output_path)
+        with open(f"{self.index_output_path}{self.base_url}.html", "w") as file:
+            file.write(self.html_content)

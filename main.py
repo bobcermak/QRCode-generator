@@ -1,42 +1,46 @@
-# Import custom utility functions or classes from the utils module
+#Import custom utility functions or classes from the utils module
 import utils
 
-# Import the local_host module (presumably to handle local server or hosting logic)
+#Import the local_host module (presumably to handle local server or hosting logic)
 import server
 
-# Import the html_gen module
+#Import the html_gen module
 import html_gen
 
-#Ui
-class Ui:
-    def start_ui(self):
+#Import threading module for creating threads
+import threading
+
+#User Interface
+class UserInterface:
+    def start(self):
         while True:
             try:
-                self.url = str(input("Enter a URL: "))
-                self._url = utils.Url(self.url)
-                if (self._url.check_correct_url()):
-                    print(f"Address {self.url} has been found")
-                    self.simplification()
+                self.url_input = str(input("Enter a URL: "))
+                self.url_handler = utils.Url(self.url_input)
+                if self.url_handler.check_correct_url():
+                    print(f"Address {self.url_input} has been found.")
+                    self.process_url()
+                    self.hosting_server = server.Local_host(self.generated_image, self.cleaned_url)
+                    server_thread = threading.Thread(target=self.hosting_server.start_server, daemon=True)
+                    server_thread.start()
+                    self.hosting_server.end_server_ui()
+                    break
                 else:
-                    print("Invalid URL")
+                    print("Invalid URL.")
             except ValueError:
                 print("Invalid input. Please enter a valid URL.")
                 continue
-    def simplification(self):
-        _gen_code = utils.Generate_code(self.url)
-        our_img = _gen_code.generate_code()
-        cleaned_url = self._url.cleaned_url()
-        _img = utils.Img(our_img, cleaned_url)
-        _img.create_img()
-        _img.save_img()
-        _html = html_gen.Html(our_img, self.url)
-        _html.html_structure(our_img, cleaned_url)
-        self.hosting = server.Local_host(our_img, cleaned_url)
-        self.hosting.start_server()
-    def end_program(self):
-        user_input = input("Enter (y/n) to end the program: ").lower()
-        return user_input == "y"
+    def process_url(self):
+        code_generator = utils.Generate_code(self.url_handler.url)
+        self.generated_image = code_generator.generate_code()
+        self.cleaned_url = self.url_handler.cleaned_url()
+        self._utils = utils.Img(self.generated_image, self.cleaned_url)
+        self._utils.create_img()
+        self._utils.save_img()
+        html_generator = html_gen.Html_handler(self.generated_image, self.url_handler.url, self.cleaned_url)
+        html_generator.generate_html_structure()
+        html_generator.save_html()
 #Call
 if __name__ == "__main__":
-    ui = Ui()
-    ui.start_ui()
+    ui = UserInterface()
+    ui.start()

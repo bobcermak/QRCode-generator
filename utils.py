@@ -1,16 +1,16 @@
-#Importing the os module to manipulate files
+#Import the os module to manipulate files
 import os
 
-#Importing the qrcode module for generating QR codes
+#Import the qrcode module for generating QR codes
 import qrcode
 
-#Importing the requests library to make HTTP requests (e.g., for validating or fetching URLs)
+#Import the requests library to make HTTP requests (e.g., for validating or fetching URLs)
 import requests
 
-#Importing urlparse from urllib.parse for parsing URLs into components
+#Import urlparse from urllib.parse for parsing URLs into components
 from urllib.parse import urlparse
 
-##Classes##
+#Classes
 #Url
 class Url:
     def __init__(self, url):
@@ -24,27 +24,31 @@ class Url:
             return False
     def cleaned_url(self) -> str:
         parsed_url = urlparse(self.url)
-        cleaned_url = parsed_url.netloc + parsed_url.path
+        domain = parsed_url.netloc
+        path = parsed_url.path[:5]
+        query = parsed_url.query[:5]
+        cleaned_url = domain + path + query
         converted_url = cleaned_url.strip("/").replace("/", "_").replace(".", "_")
         return converted_url.lstrip("www_")
 #Generate code
 class Generate_code:
     def __init__(self, url):
         self.url = url
-    def generate_code(self): #return cleanedUrl()
+    def generate_code(self):
         img = qrcode.make(self.url)
         return img
-#Write img
+#Img
 class Img:
     def __init__(self, img, url):
         self.img = img
         self.url = url
-        self.output_path_output = "./output/"
-        self.output_path = "./output/images/"
+        self.output_path_img = "./output/images/"
         self.output_path_index = "./output/indexes/"
-        self.output_path_rel = "../images/"
+        self.output_path_img_rel = "../images/"
+        self.output_path_index_rel = "../indexes"
     def create_img(self):
-        if not os.path.exists(self.output_path):
-            os.makedirs(self.output_path)
+        if not os.path.exists(self.output_path_img):
+            os.makedirs(self.output_path_img)
+
     def save_img(self):
-        self.img.save(f"{self.output_path}{self.url}.png")
+        self.img.save(f"{self.output_path_img}{self.url}.png")
