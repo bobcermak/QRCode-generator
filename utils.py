@@ -39,6 +39,7 @@ class Img:
     def __init__(self, img, url):
         self.img = img
         self.url = url
+        self.output_path_output = "./output/"
         self.output_path = "./output/images/"
         self.output_path_index = "./output/indexes/"
         self.output_path_rel = "../images/"

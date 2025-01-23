@@ -1,22 +1,4 @@
-# Import the html module, which provides functions for handling HTML entities and escaping text
-import html
 
-# Import custom utility library
-import utils
-
-#HTML
-class Html:
-    def __init__(self, img, fullUrl):
-        self.img = img
-        self.fullUrl = fullUrl
-    def html_structure(self, img, url):
-        _utils = utils.Img(img, url)
-        our_url = _utils.url
-        path_output = _utils.output_path_output
-        path_index = _utils.output_path_index
-        path_img = _utils.output_path_rel
-        path_url = _utils.url
-        html_content = f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +8,7 @@ class Html:
     <link rel="icon" sizes="256x357" href="../assets/qrcode-logo.jpg"/>
     <title>QRCode</title>
     <style>
-        body {{
+        body {
             height: 100vh;
             height: 100dvh;
             margin: 0;
@@ -36,9 +18,9 @@ class Html:
             justify-content: center;
             align-items: center;
             color: #ffffff;
-        }}
+        }
 
-        .container {{
+        .container {
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 1em;
             padding: 2em;
@@ -46,15 +28,15 @@ class Html:
             text-align: center;
             max-width: 31.25em;
             width: 80%;
-        }}
+        }
 
-        h1 {{
+        h1 {
             margin: 0;
             font-size: 2.5em;
             color: #f9fafb;
-        }}
+        }
 
-        img {{
+        img {
             display: block;
             max-width: 100%;
             height: 100%;
@@ -62,64 +44,61 @@ class Html:
             margin: 1.25em auto;
             border: 0.1875em solid #ffffff;
             border-radius: 0.625em;
-        }}
+        }
 
-        a {{
+        a {
             color: #4ade80;
             font-weight: bold;
             text-decoration: none;
             text-align: center;
             word-wrap: break-word;
-        }}
+        }
 
-        a:hover {{
+        a:hover {
             color: #a7f3d0;
             text-decoration: underline;
-        }}
+        }
 
-        p {{
+        p {
             margin-top: 1.25em;
             font-size: 1em;
-        }}
+        }
 
-        @media (max-width: 768px) {{
-            h1 {{
+        @media (max-width: 768px) {
+            h1 {
                 font-size: 2em;
-            }}
+            }
 
-            p {{
+            p {
                 font-size: 0.9em;
-            }}
+            }
 
-            img {{
+            img {
                 width: 80%;
-            }}
-        }}
+            }
+        }
 
-        @media (max-width: 480px) {{
-            .container {{
+        @media (max-width: 480px) {
+            .container {
                 padding: 1.5em;
-            }}
+            }
 
-            h1 {{
+            h1 {
                 font-size: 1.8em;
-            }}
+            }
 
-            p {{
+            p {
                 font-size: 0.8em;
-            }}
-        }}
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>QRCode</h1>
-        <img src="{path_img}{path_url}.png" alt="QRCode" width="370" height="370">
-        <a href="{self.fullUrl}" target="_blank">{self.fullUrl}</a>
-        <p>The QR codes have been downloaded to the <a href="{path_output}" target="_blank">{path_output}</a>.</p>
+        <img src="../images/github_com_bobcermak.png" alt="QRCode" width="400" height="400">
+        <a href="https://github.com/bobcermak" target="_blank">https://github.com/bobcermak</a>
+        <p>The QR codes have been downloaded to the <a href="./output/" target="_blank">./output/</a>.</p>
     </div>
 </body>
 </html>
-"""
-        with open(f"{path_index}{our_url}.html", "w") as file:
-            file.write(f"{html_content}")
