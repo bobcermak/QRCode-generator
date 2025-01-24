@@ -1,6 +1,6 @@
 # QRCode Generator
 
-Jednoduchý nástroj pro generování QR kódů z URL a jejich zobrazení v různých HTML.
+Jednoduchý nástroj pro generování QR kódů z URL a jejich zobrazení v HTML souborech.
 
 ![QRCode Image](./output/assets/qrcode-logo.jpg)
 
