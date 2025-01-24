@@ -46,7 +46,7 @@ class Local_host:
     This method serves files from the local directory and opens the 
     HTML page automatically.
     """
-    def end_server_ui(self) -> None:
+    def end_server(self) -> None:
         input("Stiskněte Enter pro zastavení serveru...\n")
         print("Zastavuji server...")
     """

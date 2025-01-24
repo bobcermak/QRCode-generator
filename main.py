@@ -4,8 +4,8 @@ import utils
 #Import the local_host module (presumably to handle local server or hosting logic)
 import server
 
-#Import the html_gen module
-import html_gen
+#Import the html_generate module
+import html_generate
 
 #Import threading module for creating threads
 import threading
@@ -23,7 +23,7 @@ class UserInterface:
                     self.hosting_server = server.Local_host(self.generated_image, self.cleaned_url)
                     server_thread = threading.Thread(target=self.hosting_server.start_server, daemon=True)
                     server_thread.start()
-                    self.hosting_server.end_server_ui()
+                    self.hosting_server.end_server()
                     break
                 else:
                     print("Špatná URL.")
@@ -42,13 +42,13 @@ class UserInterface:
         self._utils = utils.Img(self.generated_image, self.cleaned_url)
         self._utils.create_img()
         self._utils.save_img()
-        html_generator = html_gen.Html_handler(self.generated_image, self.url_handler.url, self.cleaned_url)
+        html_generator = html_generate.Html_handler(self.generated_image, self.url_handler.url, self.cleaned_url)
         html_generator.generate_html_structure()
         html_generator.save_html()
     """
     Processes the URL by generating a QR code for the given URL, cleaning the URL,
     and creating the corresponding HTML files. This method calls necessary functions
-    from the utils and html_gen modules to generate and save the image and HTML content.
+    from the utils and html_generate modules to generate and save the image and HTML content.
     """
 #Call
 if __name__ == "__main__":
