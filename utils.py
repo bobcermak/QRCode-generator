@@ -24,6 +24,9 @@ class Url:
         try:
             self.response = requests.get(self.url)
             return self.response.status_code == 200
+        except requests.exceptions.ConnectionError:
+            print("Chyba: Nelze se připojit k internetu.")
+            return False
         except Exception as e:
             print(f"Chyba při kontrolování URL: {e}")
             return False
