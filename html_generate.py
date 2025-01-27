@@ -11,6 +11,13 @@ import utils
 #Html handler
 class Html_handler:
     def __init__(self, qr_image, full_url, base_url):
+        """
+        Initializes the Html_handler class with QR code image, full URL, and base URL for HTML generation.
+        Args:
+            qr_image (img): The QR code image to be embedded in the HTML.
+            full_url (str): The full URL for the QR code.
+            base_url (str): The base URL used for saving files and generating paths.
+        """
         self.qr_image = qr_image
         self.full_url = full_url
         self._utils = utils.Img(qr_image, base_url)
@@ -19,13 +26,6 @@ class Html_handler:
         self.image_rel_path = self._utils.output_path_img_rel
         self.index_rel_path = self._utils.output_path_index_rel
         self.url_path = self._utils.url
-    """
-    Initializes the Html_handler class with QR code image, full URL, and base URL for HTML generation.
-    Args:
-        qr_image (img): The QR code image to be embedded in the HTML.
-        full_url (str): The full URL for the QR code.
-        base_url (str): The base URL used for saving files and generating paths.
-    """
     def generate_html_structure(self) -> None:
         """
         Generates the HTML content structure, embedding the QR code and providing links.

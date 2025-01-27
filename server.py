@@ -20,18 +20,23 @@ class Local_host:
     the HTML page for displaying QR code and URL information.
     """
     def __init__(self, img, url):
+        """
+        Initializes the server with the provided image and URL.
+        Parameters:
+        img (Image): The generated image (QR code).
+        url (str): The base URL for generating and saving related files.
+        """
         self.host = "127.0.0.1"
         self.port = 5500
         self._utils = utils.Img(img, url)
         self.path = self._utils.output_path_index
         self.html_file = self._utils.url
-    """
-    Initializes the server with the provided image and URL.
-    Parameters:
-    img (Image): The generated image (QR code).
-    url (str): The base URL for generating and saving related files.
-    """
     def start_server(self) -> None:
+        """
+        Starts the local HTTP server and opens the generated HTML page in the browser.
+        This method serves files from the local directory and opens the 
+        HTML page automatically.
+        """
         with TCPServer((self.host, self.port), SimpleHTTPRequestHandler) as httpd:
             self.server = httpd
             print(f"Server běží na adrese http://{self.host}:{self.port}")
@@ -41,15 +46,10 @@ class Local_host:
             except KeyboardInterrupt:
                 print("\nServer byl zastaven.")
                 httpd.shutdown()
-    """
-    Starts the local HTTP server and opens the generated HTML page in the browser.
-    This method serves files from the local directory and opens the 
-    HTML page automatically.
-    """
     def end_server(self) -> None:
+        """
+        Prompts the user to press Enter to stop the server.
+        This method ensures the user can stop the server manually from the command line.
+        """
         input("Stiskněte Enter pro zastavení serveru...\n")
         print("Zastavuji server...")
-    """
-    Prompts the user to press Enter to stop the server.
-    This method ensures the user can stop the server manually from the command line.
-    """
