@@ -19,7 +19,7 @@ class Local_host:
     Handles the local server setup, image generation, and launching
     the HTML page for displaying QR code and URL information.
     """
-    def __init__(self, img, url):
+    def __init__(self, img: utils.Generate_code, url: str):
         """
         Initializes the server with the provided image and URL.
         Parameters:

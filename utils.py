@@ -13,7 +13,7 @@ from urllib.parse import urlparse
 #Classes
 #Url
 class Url:
-    def __init__(self, url):
+    def __init__(self, url: str):
         """
         Initializes the Url class with a given URL string.
         Args:
@@ -50,7 +50,7 @@ class Url:
         return converted_url.lstrip("www_")
 #Generate code
 class Generate_code:
-    def __init__(self, url):
+    def __init__(self, url: str):
         """
         Initializes the Generate_code class with a URL.
         Args:
@@ -67,7 +67,7 @@ class Generate_code:
         return img
 #Img
 class Img:
-    def __init__(self, img, url):
+    def __init__(self, img: Generate_code, url: str):
         """
         Initializes the Img class with a generated QR code image and the corresponding URL.
         Args:

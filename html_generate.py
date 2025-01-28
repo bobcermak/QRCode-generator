@@ -10,7 +10,7 @@ import utils
 #Classes
 #Html handler
 class Html_handler:
-    def __init__(self, qr_image, full_url, base_url):
+    def __init__(self, qr_image: utils.Generate_code, full_url: str, base_url: str):
         """
         Initializes the Html_handler class with QR code image, full URL, and base URL for HTML generation.
         Args:
