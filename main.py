@@ -30,8 +30,7 @@ class UserInterface:
                     server_thread.start()
                     self.hosting_server.end_server()
                     break
-                else:
-                    print("Špatná URL.")
+                else: print("Špatná URL.")
             except ValueError:
                 print("Neplatný vstup. Zadejte platnou URL.")
                 continue

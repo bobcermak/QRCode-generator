@@ -143,7 +143,5 @@ class Html_handler:
         Saves the generated HTML content to a file in the specified output path.
         If the output directory does not exist, it is created. The HTML file is named based on the base URL.
         """
-        if not os.path.exists(self.index_output_path):
-            os.makedirs(self.index_output_path)
-        with open(f"{self.index_output_path}{self.base_url}.html", "w") as file:
-            file.write(self.html_content)
+        if not os.path.exists(self.index_output_path): os.makedirs(self.index_output_path)
+        with open(f"{self.index_output_path}{self.base_url}.html", "w") as file: file.write(self.html_content)

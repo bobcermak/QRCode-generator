@@ -84,8 +84,7 @@ class Img:
         """
         Creates the necessary directory to save the image if it does not already exist.
         """
-        if not os.path.exists(self.output_path_img):
-            os.makedirs(self.output_path_img)
+        if not os.path.exists(self.output_path_img): os.makedirs(self.output_path_img)
     def save_img(self) -> None:
         """
         Saves the generated QR code image to the specified file path using the cleaned URL as the file name.
