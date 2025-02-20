@@ -11,7 +11,7 @@ from http.server import SimpleHTTPRequestHandler
 from socketserver import TCPServer
 
 #Import custom utility library for handling images and URLs
-import utils
+from src import utils
 
 #Local host
 class Local_host:
