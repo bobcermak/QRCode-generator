@@ -1,11 +1,11 @@
 #Import custom utility functions or classes from the utils module
-from src import utils
+import utils
 
 #Import the local_host module (presumably to handle local server or hosting logic)
-from src import server
+import server
 
 #Import the html_generate module
-from src import html_generate
+import html_generate
 
 #Import threading module for creating threads
 import threading

@@ -1,11 +1,8 @@
 #Import os to handle file and directory operations
 import os
 
-# #Import html to handle HTML entities if needed
-# import html
-
 #Import custom utility library for image handling
-from src import utils
+import utils
 
 #Classes
 #Html handler
